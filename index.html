@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLAB · Computational Comparative Cognition Lab</title>
+  <meta name="description" content="Computational Comparative Cognition Lab (CLAB) at the Max Planck Institute." />
+  <link rel="icon" type="image/png" href="CLAB_small.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=26" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <img src="CLab_Logo2.png" alt="CLAB, Computational Comparative Cognition Lab" class="brand-logo" />
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#team">Team</a>
+        <a href="#news">News</a>
+        <a href="#resources">Resources</a>
+        <a href="#join" class="nav-cta">Join Us</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn is-active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero-inner reveal">
+        <div class="hero-logos" aria-label="Affiliations">
+          <img src="assets/img/mpg_logo.svg" alt="Max Planck Society" />
+          <img src="assets/img/mpi_eva_logo.svg" alt="Max Planck Institute for Evolutionary Anthropology" />
+        </div>
+        <h1 class="hero-title">Computational<br />Comparative<br />Cognition Lab</h1>
+        <p class="hero-tagline">We study how humans, animals, and machines learn and explore.</p>
+        <a href="#research" class="scroll-prompt">
+          <span>Scroll and discover what we do</span>
+          <span class="scroll-arrow">↓</span>
+        </a>
+      </div>
+      <div class="hero-sticker" aria-hidden="true">CLAB</div>
+    </section>
+
+    <!-- ============ RESEARCH (stacked numbered phases) ============ -->
+    <section class="section research" id="research">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Research</h2>
+          <p class="section-sub">Explore our research themes.</p>
+        </div>
+
+        <div class="research-deck reveal">
+
+          <article class="deck-card deck-what" tabindex="0" aria-label="What">
+            <span class="deck-label">What</span>
+            <div class="deck-body">
+              <div class="theme-stage" id="themeStage">
+                <div class="c-art">
+                  <svg id="cArt" viewBox="0 0 400 400" aria-label="Research themes: click a colour to explore">
+                    <!-- coloured arc segments injected by main.js -->
+                  </svg>
+                </div>
+                <div class="theme-panel" aria-live="polite">
+                  <div class="theme-text theme-text--curiosity" data-theme="curiosity">
+                    <h3>Curiosity</h3>
+                    <p>How do humans and animals explore the world and forage for learning opportunities?</p>
+                  </div>
+                  <div class="theme-text theme-text--creativity" data-theme="creativity">
+                    <h3>Creativity</h3>
+                    <p>How do we recombine known elements into something genuinely new?</p>
+                  </div>
+                  <div class="theme-text theme-text--complexity" data-theme="complexity">
+                    <h3>Complexity</h3>
+                    <p>How does complex cognition emerge from simple components across evolution and development?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="deck-card deck-where" tabindex="0" aria-label="Where">
+            <span class="deck-label">Where</span>
+            <div class="deck-body">
+              <div class="where-stage" id="whereStage">
+                <div class="where-art">
+                  <img class="where-layer where-globe" src="globe.png" alt="" />
+                  <img class="where-layer where-chimp" src="chimp.png" alt="" />
+                  <img class="where-layer where-baby"  src="baby.png"  alt="" />
+                  <!-- transparent hover hotspots over each element -->
+                  <button class="where-hot" data-where="globe" aria-label="Globe" style="--x:50%;--y:14%;--w:82%;--h:24%"></button>
+                  <button class="where-hot" data-where="globe" aria-label="Globe" style="--x:50%;--y:58%;--w:86%;--h:48%"></button>
+                  <button class="where-hot" data-where="chimp" aria-label="Chimp" style="--x:34%;--y:53%;--w:38%;--h:34%"></button>
+                  <button class="where-hot" data-where="baby"  aria-label="Baby"  style="--x:68%;--y:54%;--w:33%;--h:30%"></button>
+                </div>
+                <div class="where-panel" aria-live="polite">
+                  <div class="where-text where-text--globe" data-where="globe">
+                    <h3>Across the Globe</h3>
+                    <p>All cultures are different. If we want to understand the cognitive abilities that are universal to all humans, we have to look for them across all cultures. Studying cultures also helps us understand how and why we vary, and which developmental and environmental factors shape those variations.</p>
+                  </div>
+                  <div class="where-text where-text--chimp" data-where="chimp">
+                    <h3>Across Species</h3>
+                    <p>Can we really say that something is special to humans if our closest relatives, the great apes, have it too? We compare brains and cognition across species to understand how they differ, and what makes us unique.</p>
+                  </div>
+                  <div class="where-text where-text--baby" data-where="baby">
+                    <h3>Across Development</h3>
+                    <p>The secret to human uniqueness lies in our long period of development: infants and children can actively explore the world and learn many complex cognitive and social skills from others. How does this happen?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="deck-card deck-how" tabindex="0" aria-label="How">
+            <span class="deck-label">How</span>
+            <div class="deck-body">
+              <div class="how-stack">
+                <figure class="how-tile" tabindex="0">
+                  <img src="tobii-pro-spectrum-developmental-research.jpg" alt="" />
+                  <figcaption class="how-cap"><p>We use eye-tracking, pupillometry and behavioural techniques to study how cognition changes across species and development.</p></figcaption>
+                </figure>
+                <figure class="how-tile" tabindex="0">
+                  <img src="cluster-computing-hero-image.jpg" alt="" />
+                  <figcaption class="how-cap"><p>We develop computational models and artificial neural networks to gain mechanistic insights on cognition.</p></figcaption>
+                </figure>
+                <figure class="how-tile" tabindex="0">
+                  <img src="brain.jpg" alt="" />
+                  <figcaption class="how-cap"><p>We work with brain data to ground our understanding of cognition in what is biologically plausible.</p></figcaption>
+                </figure>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section class="section team" id="team">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Team</h2>
+        </div>
+
+        <div class="people-grid reveal">
+          <figure class="person" tabindex="0">
+            <img class="person-photo" src="Francesco.JPG" alt="Dr. Francesco Poli" />
+            <figcaption class="person-info">
+              <div class="person-name"><strong>Dr. Francesco Poli</strong><span>Principal Investigator</span></div>
+              <p class="person-bio">Francesco leads CLAB. He is interested in how humans and other animals learn and explore, and loves using eye-tracking and computational modelling to find out.</p>
+              <div class="person-actions">
+                <a class="person-bsky" href="https://bsky.app/profile/francescopoli.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky profile of Francesco Poli">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
+                </a>
+                <a class="person-link" href="https://francescpoli.github.io/" target="_blank" rel="noopener">Go to personal website <span class="arrow-x">&rarr;</span></a>
+              </div>
+              <a class="person-email" href="mailto:francesco.poli@live.com">francesco.poli@live.com</a>
+            </figcaption>
+          </figure>
+          <figure class="person" tabindex="0">
+            <img class="person-photo" src="Anchal_Bhaskar.jpg" alt="Anchal Bhaskar" />
+            <figcaption class="person-info">
+              <div class="person-name"><strong>Anchal Bhaskar</strong><span>PhD Student</span></div>
+              <p class="person-bio">Anchal is interested in Nature, Networks, and Nurture: How cognition is the result of genetic, brain, and behavioural processes across development.</p>
+            </figcaption>
+          </figure>
+          <figure class="person" tabindex="0">
+            <img class="person-photo" src="assets/img/team/role-postdoc.svg" alt="" />
+            <figcaption class="person-info">
+              <div class="person-name"><strong>This could be you!</strong><span>Postdoctoral Researcher</span></div>            </figcaption>
+          </figure>
+          <figure class="person" tabindex="0">
+            <img class="person-photo" src="assets/img/team/role-phd.svg" alt="" />
+            <figcaption class="person-info">
+              <div class="person-name"><strong>This could be you!</strong><span>PhD Student</span></div>            </figcaption>
+          </figure>
+          <figure class="person" tabindex="0">
+            <img class="person-photo" src="assets/img/team/role-masters.svg" alt="" />
+            <figcaption class="person-info">
+              <div class="person-name"><strong>This could be you!</strong><span>Master's Student</span></div>            </figcaption>
+          </figure>
+          <figure class="person" tabindex="0">
+            <img class="person-photo" src="assets/img/team/role-ra.svg" alt="" />
+            <figcaption class="person-info">
+              <div class="person-name"><strong>This could be you!</strong><span>Research Assistant</span></div>            </figcaption>
+          </figure>
+          <figure class="person" tabindex="0">
+            <img class="person-photo" src="assets/img/team/role-lab.svg" alt="" />
+            <figcaption class="person-info">
+              <div class="person-name"><strong>This could be you!</strong><span>Lab Manager</span></div>            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWS (three video cards row) ============ -->
+    <section class="section news" id="news">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">News</h2>
+        </div>
+
+        <div class="news-scroller reveal">
+          <div class="card-grid" id="newsTrack">
+            <a class="news-card" href="https://www.newscientist.com/article/2596932-curiosity-may-be-what-drives-our-brains-to-become-so-complex/" target="_blank" rel="noopener">
+              <div class="news-media news-media--light"><img src="assets/img/news/new-scientist.jpg" alt="New Scientist article: Curiosity may be what drives our brains to become so complex" /></div>
+              <div class="card-text">
+                <span class="card-tag">Press</span>
+                <h3>Our research was covered by New Scientist</h3>
+              </div>
+            </a>
+
+            <a class="news-card" href="https://www.pnas.org/doi/abs/10.1073/pnas.2610400123" target="_blank" rel="noopener">
+              <div class="news-media"><img src="assets/img/news/pnas.jpg" alt="PNAS" /></div>
+              <div class="card-text">
+                <span class="card-tag">Paper</span>
+                <h3>Our new paper is out in PNAS!</h3>
+              </div>
+            </a>
+
+            <a class="news-card" href="https://www.forbes.com/sites/alisonescalante/2025/01/28/autistic-traits-promote-curiosity-driven-learning-research-finds/" target="_blank" rel="noopener">
+              <div class="news-media"><img src="assets/img/news/forbes-logo.png" alt="Forbes" /></div>
+              <div class="card-text">
+                <span class="card-tag">Press</span>
+                <h3>Our research was covered by Forbes</h3>
+              </div>
+            </a>
+
+            <a class="news-card" href="https://www.youtube.com/watch?v=vPxMyfUJO1A" target="_blank" rel="noopener">
+              <div class="news-media">
+                <img src="assets/img/news/talk-bcccd.jpg" alt="" />
+                <span class="play-btn" aria-hidden="true">▶</span>
+              </div>
+              <div class="card-text">
+                <span class="card-tag">Talk</span>
+                <h3>Francesco speaks at BCCCD about developmental changes in curiosity</h3>
+              </div>
+            </a>
+
+            <a class="news-card" href="https://www.science.org/doi/full/10.1126/sciadv.adu2014" target="_blank" rel="noopener">
+              <div class="news-media news-media--light"><img src="assets/img/news/science-advances.png" alt="Science Advances" /></div>
+              <div class="card-text">
+                <span class="card-tag">Paper</span>
+                <h3>Our new paper is out in Science Advances!</h3>
+              </div>
+            </a>
+
+            <a class="news-card" href="https://www.youtube.com/watch?v=eVUE-fwRyqg" target="_blank" rel="noopener">
+              <div class="news-media">
+                <img src="assets/img/news/podcast-monkey.jpg" alt="" />
+                <span class="play-btn" aria-hidden="true">▶</span>
+              </div>
+              <div class="card-text">
+                <span class="card-tag">Podcast</span>
+                <h3>Francesco was interviewed at The Monkey Podcast</h3>
+              </div>
+            </a>
+
+            <a class="news-card" href="https://www.youtube.com/watch?v=OwGvCDxMd94&list=PLQL6z4JeTTQmodlMcLj5oqmxBh_BkLVMI" target="_blank" rel="noopener">
+              <div class="news-media">
+                <img src="assets/img/news/talk-icdl.jpg" alt="" />
+                <span class="play-btn" aria-hidden="true">▶</span>
+              </div>
+              <div class="card-text">
+                <span class="card-tag">Talk</span>
+                <h3>Francesco spoke at ICDL about exploratory behaviour in infants</h3>
+              </div>
+            </a>
+          </div>
+          <button class="news-arrow news-arrow--prev" id="newsPrev" aria-label="Newer news" hidden>&lsaquo;</button>
+          <button class="news-arrow news-arrow--next" id="newsNext" aria-label="Older news">&rsaquo;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESOURCES (floating circles for the team) ============ -->
+    <section class="section resources" id="resources">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Resources</h2>
+          <p class="section-sub">For the team: where to find what you need.</p>
+        </div>
+
+        <div class="res-deck reveal">
+          <div class="res-circle res-methods" tabindex="0">
+            <div class="res-inner">
+              <h3 class="res-title">Methods</h3>
+              <div class="res-body">
+                <p class="methods-tagline">A roadmap to open tools and methods in cognitive neuroscience.</p>
+                <div class="methods-row">
+                  <a class="method-item" href="https://devstart.org" target="_blank" rel="noopener">
+                    <img class="method-logo" src="devstart.png" alt="DevStart" />
+                    <span class="method-name">DevStart</span>
+                    <small class="method-desc">Hands-on tutorials to code, create experiments, analyse data</small>
+                  </a>
+                  <a class="method-item" href="https://experimentology.io" target="_blank" rel="noopener">
+                    <img class="method-logo" src="experimentology.png" alt="Experimentology" />
+                    <span class="method-name">Experimentology</span>
+                    <small class="method-desc">The conceptual side of things, for a deeper understanding</small>
+                  </a>
+                  <a class="method-item" href="https://neuromatch.io" target="_blank" rel="noopener">
+                    <img class="method-logo" src="neuromatch.png" alt="Neuromatch" />
+                    <span class="method-name">Neuromatch</span>
+                    <small class="method-desc">Towards computational neuroscience</small>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="res-circle res-readings" tabindex="0">
+            <div class="res-inner">
+              <h3 class="res-title">Suggested Readings</h3>
+              <div class="res-body">
+                <ul class="readings-list">
+                  <li><a href="https://smallpotatoes.paulbloom.net/p/a-lot-of-developmental-psychology-f0a" target="_blank" rel="noopener">
+                    <span class="reading-cite">Bloom (2026)</span> A lot of developmental psychology isn't worth doing</a></li>
+                  <li><a href="https://www.jstor.org/stable/jj.33506890" target="_blank" rel="noopener">
+                    <span class="reading-cite">Mars (2026)</span> The Fox, the Shrew, and You: How Brains Evolved</a></li>
+                  <li><a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(24)00028-7" target="_blank" rel="noopener">
+                    <span class="reading-cite">Poli et al. (2024)</span> Curiosity and the dynamics of optimal exploration</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="res-circle res-values" tabindex="0">
+            <div class="res-inner">
+              <h3 class="res-title">Our Values</h3>
+              <div class="res-body">
+                <div class="values-row" id="valuesRow">
+                  <button type="button" class="value-bubble" data-v="transparency">Transparency</button>
+                  <button type="button" class="value-bubble" data-v="care">Care</button>
+                  <button type="button" class="value-bubble" data-v="slow">Slow science</button>
+                </div>
+                <div class="value-detail">
+                  <p class="value-text" data-v="transparency"><strong class="vt-name">Transparency</strong>It applies to all aspects of research. To communication: mutual goals and expectations should be clear to everyone. To scientific opinions: it is absolutely fine to disagree, and if anything the scientific method is there to help us understand which of conflicting opinions is closer to the truth. To mistakes: we are doing complicated jobs and mistakes can happen, but like every other aspect they should not be hidden. They should be communicated and taken as an opportunity to grow.</p>
+                  <p class="value-text" data-v="care"><strong class="vt-name">Care</strong>In the lab, mutual care and respect are valued. We are a team, and goals are always shared. Helping each other and making sure that we are all thriving is foundational to who we are as a team.</p>
+                  <p class="value-text" data-v="slow"><strong class="vt-name">Slow science</strong>Slow does not mean idle: there is a lot to do in a research project, many aspects to think about and keep track of, but they should not be rushed. The focus is on learning and understanding, not delivering. We are the only known animal in the universe with a chance to understand where we come from and who we are. Let's take this as an exciting gift, not a stressful chore. <a class="value-link" href="https://www.slow-science.com/" target="_blank" rel="noopener">Find out more <span class="arrow-x">&rarr;</span></a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="res-circle res-collabs" tabindex="0">
+            <div class="res-inner">
+              <h3 class="res-title">Collabs</h3>
+              <div class="res-body">
+                <div class="collabs-row">
+                  <a class="collab" href="https://scholar.google.com/citations?user=8iFyhckAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Tommaso_Ghilardi.jpg" alt="Tommaso Ghilardi" /></span>
+                    <span class="collab-name">Tommaso Ghilardi</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=SXzeQH0AAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Duncan_Astle.png" alt="Duncan Astle" /></span>
+                    <span class="collab-name">Duncan Astle</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=652pLAUAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Kayson_Fakhar.jpg" alt="Kayson Fakhar" /></span>
+                    <span class="collab-name">Kayson Fakhar</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=gOTxTaoAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Azzurra_Ruggeri.jpg" alt="Azzurra Ruggeri" /></span>
+                    <span class="collab-name">Azzurra Ruggeri</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=u7j5P8MAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Sabine_Hunnius.png" alt="Sabine Hunnius" /></span>
+                    <span class="collab-name">Sabine Hunnius</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=t6sb0foAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Agi_Kovacs.jpg" alt="Ágnes Kovács" /></span>
+                    <span class="collab-name">Ágnes Kovács</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=5xWoGMgAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Rogier_Mars.png" alt="Rogier Mars" /></span>
+                    <span class="collab-name">Rogier Mars</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=l_4yjIMAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Charlotte_Grosse_Wiesmann.jpg" alt="Charlotte Grosse Wiesmann" /></span>
+                    <span class="collab-name">Charlotte Grosse Wiesmann</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=gCqGj4sAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="P-Y_Oudeyer.png" alt="Pierre-Yves Oudeyer" /></span>
+                    <span class="collab-name">Pierre-Yves Oudeyer</span>
+                  </a>
+                  <a class="collab" href="https://scholar.google.com/citations?user=KFUbXYYAAAAJ" target="_blank" rel="noopener">
+                    <span class="collab-photo"><img src="Matej_Hoffmann.jpg" alt="Matej Hoffmann" /></span>
+                    <span class="collab-name">Matej Hoffmann</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOIN US ============ -->
+    <section class="section join" id="join">
+      <div class="container narrow reveal">
+        <h2 class="section-title">Join Us</h2>
+        <p class="lead">
+          We are always looking for curious minds: PhD students, postdocs, and
+          interns interested in cognition across humans, animals, or machines.
+        </p>
+        <div class="join-actions">
+          <a href="mailto:francesco.poli@live.com" class="btn btn-primary">Get in touch</a>
+          <button type="button" class="btn btn-ghost" id="openPositionsBtn">Open positions</button>
+        </div>
+
+        <dialog class="positions-dialog" id="positionsDialog" aria-label="Open positions">
+          <div class="dialog-inner">
+            <button class="dialog-close" data-close aria-label="Close">&times;</button>
+            <p>We do not have open positions at the moment, but you can get in touch to explore possibilities for grants or scholarships to apply to together!</p>
+            <a class="btn btn-primary" href="mailto:francesco.poli@live.com">Get in touch</a>
+          </div>
+        </dialog>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ WHERE TO FIND US (footer) ============ -->
+  <footer class="findus" id="findus" aria-label="Where to find us">
+    <img class="findus-bg" src="max_planck_institute_for_evolutionary_anthropology_cover.jpg" alt="Max Planck Institute for Evolutionary Anthropology, Leipzig" />
+    <div class="findus-content">
+      <h2 class="findus-title">Where to find us</h2>
+      <div class="findus-cols">
+        <div class="findus-address">
+          <p>
+            <strong>Computational Comparative Cognition Lab</strong><br />
+            Department of Comparative and Cultural Psychology<br />
+            Max Planck Institute for Evolutionary Anthropology<br />
+            Leipzig, Germany
+          </p>
+          <a class="findus-bsky" href="https://bsky.app/profile/francescopoli.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky profile of Francesco Poli">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
+          </a>
+        </div>
+        <div class="findus-map" id="findusMap">
+          <!-- The Google Map loads only after a click (see main.js and privacy.html) -->
+          <div class="map-consent" id="mapConsent">
+            <button type="button" class="map-load" id="mapLoadBtn">Show map</button>
+            <p>This loads Google Maps and sends your IP address to Google. <a href="privacy.html">Privacy</a></p>
+          </div>
+          <a class="findus-cta"
+             href="https://www.google.com/maps/search/?api=1&query=Max+Planck+Institute+for+Evolutionary+Anthropology+Leipzig"
+             target="_blank" rel="noopener" aria-label="Open the Max Planck Institute for Evolutionary Anthropology in Google Maps">Open in Google Maps <span class="arrow-x">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="findus-legal">
+        <span>© <span id="year"></span> CLAB · Max Planck Institute</span>
+        <span><a href="imprint.html">Imprint</a> · <a href="privacy.html">Privacy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=20"></script>
+</body>
+</html>

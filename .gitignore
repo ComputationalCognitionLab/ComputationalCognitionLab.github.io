@@ -1,0 +1,9 @@
+# Internal notes and full-size source images: not part of the published site
+LAUNCH_PLAN.md
+originals/
+CLab_Logo.png
+
+# Windows and OneDrive system files
+desktop.ini
+Thumbs.db
+~$*
