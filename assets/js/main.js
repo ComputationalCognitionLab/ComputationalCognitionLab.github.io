@@ -108,7 +108,11 @@ if ('IntersectionObserver' in window) {
 
   rs.querySelectorAll('.rs-head').forEach(h => h.addEventListener('click', () => open(h.dataset.part)));
   items.forEach(b => b.addEventListener('click', () => pick(b.dataset.part, b.dataset.item)));
-  panels.forEach(p => p.querySelectorAll('.art-hot, .art-live').forEach(h => h.addEventListener('click', () => pick(p.dataset.part, h.dataset.item))));
+  panels.forEach(p => {
+    p.querySelectorAll('.art-hot').forEach(h => h.addEventListener('click', () => pick(p.dataset.part, h.dataset.item)));
+    // the live network: any tap or click on it, on a node too (a touch on a node gives no 'click')
+    p.querySelectorAll('.art-live').forEach(h => h.addEventListener('net-tap', () => pick(p.dataset.part, h.dataset.item)));
+  });
   open('what');
 })();
 
@@ -121,7 +125,7 @@ if ('IntersectionObserver' in window) {
   const panel = cvs.closest('.rs-panel');
   let W = 0, H = 0, running = false, visible = false, quietSince = 0;
   const shown = () => visible && !document.hidden && (!panel || getComputedStyle(panel).visibility !== 'hidden');
-  const net = makeNetwork(cvs, { reduce, scale: .72, count: () => 6, size: () => [W, H], box: () => ({ x1: W * .1, y1: H * .1, x2: W * .9, y2: H * .9 }), avoid: () => false, wake: () => wake() });
+  const net = makeNetwork(cvs, { reduce, scale: .72, count: () => 8, size: () => [W, H], box: () => ({ x1: W * .1, y1: H * .1, x2: W * .9, y2: H * .9 }), avoid: () => false, wake: () => wake() });
   function frame(now) {
     running = false;
     if (!shown()) return;
@@ -264,6 +268,8 @@ function makeNetwork(cvs, cfg) {
   const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
   const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
   const pad = (b, p) => ({ x1: b.x1 - p, y1: b.y1 - p, x2: b.x2 + p, y2: b.y2 + p });
+  const keepIn = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const margin = n => n.rad * 1.5 + 4; // how close to the canvas edge a node may get
   const wake = () => cfg.wake();
   let W = 0, H = 0;
   const C = { graphite: hex('#2E343B'), slate: hex('#6D747E'), violet: hex('#6B5BA6'), lilac: hex('#B8AEDB'), moss: hex('#3F6B4E'), silver: hex('#9BA2AA'), white: [255, 255, 255] };
@@ -395,6 +401,9 @@ function makeNetwork(cvs, cfg) {
       if (drag && drag.i === i) { n.x = drag.x; n.y = drag.y; n.vx = n.vy = 0; return; }
       n.vx = (n.vx + n.fx * dt) * damp; n.vy = (n.vy + n.fy * dt) * damp;
       n.x += n.vx * dt; n.y += n.vy * dt;
+      const m = margin(n); // never pushed out of sight
+      if (n.x < m || n.x > W - m) { n.x = keepIn(n.x, m, W - m); n.vx = 0; }
+      if (n.y < m || n.y > H - m) { n.y = keepIn(n.y, m, H - m); n.vy = 0; }
       energy += Math.abs(n.vx) + Math.abs(n.vy) + Math.abs(n.fx) * .02 + Math.abs(n.fy) * .02;
     });
     return energy;
@@ -485,8 +494,11 @@ function makeNetwork(cvs, cfg) {
   cvs.addEventListener('pointermove', e => {
     const p = local(e);
     pointer.x = p.x; pointer.y = p.y; pointer.inside = true;
-    if (drag) { drag.x = p.x; drag.y = p.y; if (down && Math.hypot(p.x - down.x, p.y - down.y) > 4) down.moved = true; }
-    else { hoverI = nodeAt(p.x, p.y); cvs.style.cursor = hoverI >= 0 ? 'grab' : 'pointer'; }
+    if (drag) { // a held node follows the pointer, but stays inside the canvas
+      const m = margin(nodes[drag.i]);
+      drag.x = keepIn(p.x, m, W - m); drag.y = keepIn(p.y, m, H - m);
+      if (down && Math.hypot(p.x - down.x, p.y - down.y) > 4) down.moved = true;
+    } else { hoverI = nodeAt(p.x, p.y); cvs.style.cursor = hoverI >= 0 ? 'grab' : 'pointer'; }
     wake();
   });
   cvs.addEventListener('pointerleave', () => { pointer.inside = false; hoverI = -1; });
@@ -503,6 +515,7 @@ function makeNetwork(cvs, cfg) {
   });
   const release = cancelled => {
     if (down && down.i < 0 && !down.moved && !cancelled) sendSpark(-1, down.x, down.y, performance.now());
+    if (down && !cancelled) cvs.dispatchEvent(new CustomEvent('net-tap')); // the page may react to it
     drag = null; down = null;
     cvs.style.cursor = hoverI >= 0 ? 'grab' : 'pointer';
   };
@@ -518,7 +531,7 @@ function makeNetwork(cvs, cfg) {
     // while a node is held, sparks keep coming
     hold(now) { if (drag && now - drag.lastSpark > 420) { sendSpark(drag.i, 0, 0, now); drag.lastSpark = now; } },
     busy: () => !!drag || waves.length > 0,
-    graph: () => ({ n: nodes.length, adj: adj.map(a => a.slice()) }),
+    graph: () => ({ n: nodes.length, adj: adj.map(a => a.slice()), pos: nodes.map(n => [Math.round(n.x), Math.round(n.y)]) }),
     waves: () => waves.length
   };
 }
