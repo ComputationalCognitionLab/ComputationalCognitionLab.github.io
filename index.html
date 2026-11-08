@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CLAB · Computational Comparative Cognition Lab</title>
   <meta name="description" content="Computational Comparative Cognition Lab (CLAB) at the Max Planck Institute." />
-  <link rel="icon" type="image/png" href="CLAB_small.png" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=26" />
+  <link rel="icon" type="image/png" href="assets/img/favicon-green.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=38" />
 </head>
 <body>
 
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="#top" class="brand">
-        <img src="CLab_Logo2.png" alt="CLAB, Computational Comparative Cognition Lab" class="brand-logo" />
+      <a href="#top" class="brand brand--mpi" aria-label="CLAB home">
+        <img src="assets/img/mpg_logo.svg" alt="Max Planck Society" class="brand-mpg" />
+        <img src="assets/img/mpi_eva_logo.svg" alt="Max Planck Institute for Evolutionary Anthropology" class="brand-mpi" />
       </a>
 
       <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#top">Home</a>
         <a href="#research">Research</a>
         <a href="#team">Team</a>
         <a href="#news">News</a>
@@ -38,111 +40,158 @@
   <main id="top">
 
     <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="container hero-inner reveal">
-        <div class="hero-logos" aria-label="Affiliations">
-          <img src="assets/img/mpg_logo.svg" alt="Max Planck Society" />
-          <img src="assets/img/mpi_eva_logo.svg" alt="Max Planck Institute for Evolutionary Anthropology" />
+    <section class="hero" id="hero">
+      <!-- Footprints walk behind the network; both are decorative and drawn by main.js -->
+      <svg class="hero-tracks" id="heroTracks" aria-hidden="true"></svg>
+      <canvas class="hero-net" id="heroNet" aria-hidden="true"></canvas>
+      <div class="container hero-inner" id="heroInner">
+        <div class="hero-head">
+          <img class="hero-logo" src="assets/img/clab-logo-green.png" alt="CLAB logo" />
+          <h1 class="hero-title"><span class="w-comp">Computational</span><br /><span class="w-compar">Comparative</span><br /><span class="w-cog">Cognition Lab</span></h1>
         </div>
-        <h1 class="hero-title">Computational<br />Comparative<br />Cognition Lab</h1>
         <p class="hero-tagline">We study how humans, animals, and machines learn and explore.</p>
-        <a href="#research" class="scroll-prompt">
-          <span>Scroll and discover what we do</span>
-          <span class="scroll-arrow">↓</span>
-        </a>
       </div>
-      <div class="hero-sticker" aria-hidden="true">CLAB</div>
+      <!-- Placed right under the network by main.js -->
+      <div class="hero-hint" id="heroHint" hidden>
+        <p class="hint-text"><i></i><span class="hint-mouse">Drag a node · click to send a spark</span><span class="hint-touch">Tap to send a spark</span></p>
+        <button type="button" class="hint-info" id="hintInfo" aria-expanded="false" aria-controls="hintNote" aria-label="About the network">i</button>
+        <p class="hint-note" id="hintNote" hidden>The network idea was stolen from <a href="https://www.kaysonfakhar.com/" target="_blank" rel="noopener">Kayson</a></p>
+      </div>
     </section>
+    <!-- The bird keeps walking down the page margin as you scroll (drawn by main.js) -->
+    <svg class="page-trail" id="pageTrail" aria-hidden="true"></svg>
 
-    <!-- ============ RESEARCH (stacked numbered phases) ============ -->
+    <!-- ============ RESEARCH: a menu on the left opens What, Where and How on the right ============ -->
     <section class="section research" id="research">
       <div class="container">
         <div class="section-head reveal">
-          <h2 class="section-title">Research</h2>
-          <p class="section-sub">Explore our research themes.</p>
+          <h2 class="section-title">Our Research</h2>
         </div>
 
-        <div class="research-deck reveal">
+        <div class="rs reveal" id="rs">
+          <nav class="rs-menu" aria-label="Our research">
+            <div class="rs-group" data-part="what">
+              <button class="rs-head" type="button" data-part="what" aria-controls="rsSub-what">What we study</button>
+              <div class="rs-sub" id="rsSub-what">
+                <ul>
+                  <li><button class="rs-item" type="button" data-part="what" data-item="curiosity">Curiosity</button></li>
+                  <li><button class="rs-item" type="button" data-part="what" data-item="creativity">Creativity</button></li>
+                  <li><button class="rs-item" type="button" data-part="what" data-item="complexity">Complexity</button></li>
+                </ul>
+              </div>
+            </div>
+            <div class="rs-group" data-part="where">
+              <button class="rs-head" type="button" data-part="where" aria-controls="rsSub-where">Where we study it</button>
+              <div class="rs-sub" id="rsSub-where">
+                <ul>
+                  <li><button class="rs-item" type="button" data-part="where" data-item="baby">Across Development</button></li>
+                  <li><button class="rs-item" type="button" data-part="where" data-item="chimp">Across Species</button></li>
+                  <li><button class="rs-item" type="button" data-part="where" data-item="globe">Across the Globe</button></li>
+                </ul>
+              </div>
+            </div>
+            <div class="rs-group" data-part="how">
+              <button class="rs-head" type="button" data-part="how" aria-controls="rsSub-how">How we study it</button>
+              <div class="rs-sub" id="rsSub-how">
+                <ul>
+                  <li><button class="rs-item" type="button" data-part="how" data-item="eye">Experimental work</button></li>
+                  <li><button class="rs-item" type="button" data-part="how" data-item="model">Computational modelling</button></li>
+                  <li><button class="rs-item" type="button" data-part="how" data-item="brain">Brain data</button></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-          <article class="deck-card deck-what" tabindex="0" aria-label="What">
-            <span class="deck-label">What</span>
-            <div class="deck-body">
-              <div class="theme-stage" id="themeStage">
-                <div class="c-art">
-                  <svg id="cArt" viewBox="0 0 400 400" aria-label="Research themes: click a colour to explore">
-                    <!-- coloured arc segments injected by main.js -->
-                  </svg>
+          <div class="rs-panels">
+            <!-- What: the three questions -->
+            <div class="rs-panel rs-panel--what" data-part="what">
+              <h3 class="rs-label">What we study</h3>
+              <div class="what-list">
+                <div class="what-item" data-item="curiosity" style="--c:#1f9aa6">
+                  <h3>Curiosity</h3>
+                  <p>How do humans and animals explore the world and forage for learning opportunities?</p>
                 </div>
-                <div class="theme-panel" aria-live="polite">
-                  <div class="theme-text theme-text--curiosity" data-theme="curiosity">
-                    <h3>Curiosity</h3>
-                    <p>How do humans and animals explore the world and forage for learning opportunities?</p>
-                  </div>
-                  <div class="theme-text theme-text--creativity" data-theme="creativity">
-                    <h3>Creativity</h3>
-                    <p>How do we recombine known elements into something genuinely new?</p>
-                  </div>
-                  <div class="theme-text theme-text--complexity" data-theme="complexity">
-                    <h3>Complexity</h3>
-                    <p>How does complex cognition emerge from simple components across evolution and development?</p>
-                  </div>
+                <div class="what-item" data-item="creativity" style="--c:#d98a2b">
+                  <h3>Creativity</h3>
+                  <p>How do we recombine known elements into something genuinely new?</p>
+                </div>
+                <div class="what-item" data-item="complexity" style="--c:#9b72cf">
+                  <h3>Complexity</h3>
+                  <p>How does complex cognition emerge from simple components across evolution and development?</p>
                 </div>
               </div>
             </div>
-          </article>
 
-          <article class="deck-card deck-where" tabindex="0" aria-label="Where">
-            <span class="deck-label">Where</span>
-            <div class="deck-body">
-              <div class="where-stage" id="whereStage">
-                <div class="where-art">
-                  <img class="where-layer where-globe" src="globe.png" alt="" />
-                  <img class="where-layer where-chimp" src="chimp.png" alt="" />
-                  <img class="where-layer where-baby"  src="baby.png"  alt="" />
-                  <!-- transparent hover hotspots over each element -->
-                  <button class="where-hot" data-where="globe" aria-label="Globe" style="--x:50%;--y:14%;--w:82%;--h:24%"></button>
-                  <button class="where-hot" data-where="globe" aria-label="Globe" style="--x:50%;--y:58%;--w:86%;--h:48%"></button>
-                  <button class="where-hot" data-where="chimp" aria-label="Chimp" style="--x:34%;--y:53%;--w:38%;--h:34%"></button>
-                  <button class="where-hot" data-where="baby"  aria-label="Baby"  style="--x:68%;--y:54%;--w:33%;--h:30%"></button>
+            <!-- Where: the globe, the chimp and the baby -->
+            <div class="rs-panel rs-panel--where" data-part="where">
+              <h3 class="rs-label">Where we study it</h3>
+              <div class="rs-text" aria-live="polite">
+                <p class="rs-pick"><span class="pick-wide">Click a name on the left, or the picture</span><span class="pick-phone">Tap the picture to explore</span></p>
+                <div class="rs-desc" data-item="baby" style="--c:#cf6f8a">
+                  <h3>Across Development</h3>
+                  <p>The secret to human uniqueness lies in our long period of development: infants and children can actively explore the world and learn many complex cognitive and social skills from others. How does this happen?</p>
                 </div>
-                <div class="where-panel" aria-live="polite">
-                  <div class="where-text where-text--globe" data-where="globe">
-                    <h3>Across the Globe</h3>
-                    <p>All cultures are different. If we want to understand the cognitive abilities that are universal to all humans, we have to look for them across all cultures. Studying cultures also helps us understand how and why we vary, and which developmental and environmental factors shape those variations.</p>
-                  </div>
-                  <div class="where-text where-text--chimp" data-where="chimp">
-                    <h3>Across Species</h3>
-                    <p>Can we really say that something is special to humans if our closest relatives, the great apes, have it too? We compare brains and cognition across species to understand how they differ, and what makes us unique.</p>
-                  </div>
-                  <div class="where-text where-text--baby" data-where="baby">
-                    <h3>Across Development</h3>
-                    <p>The secret to human uniqueness lies in our long period of development: infants and children can actively explore the world and learn many complex cognitive and social skills from others. How does this happen?</p>
-                  </div>
+                <div class="rs-desc" data-item="chimp" style="--c:#c77d3a">
+                  <h3>Across Species</h3>
+                  <p>Can we really say that something is special to humans if our closest relatives, the great apes, have it too? We compare brains and cognition across species to understand how they differ, and what makes us unique.</p>
+                </div>
+                <div class="rs-desc" data-item="globe" style="--c:#3a6ea5">
+                  <h3>Across the Globe</h3>
+                  <p>All cultures are different. If we want to understand the cognitive abilities that are universal to all humans, we have to look for them across all cultures. Studying cultures also helps us understand how and why we vary, and which developmental and environmental factors shape those variations.</p>
                 </div>
               </div>
-            </div>
-          </article>
-
-          <article class="deck-card deck-how" tabindex="0" aria-label="How">
-            <span class="deck-label">How</span>
-            <div class="deck-body">
-              <div class="how-stack">
-                <figure class="how-tile" tabindex="0">
-                  <img src="tobii-pro-spectrum-developmental-research.jpg" alt="" />
-                  <figcaption class="how-cap"><p>We use eye-tracking, pupillometry and behavioural techniques to study how cognition changes across species and development.</p></figcaption>
-                </figure>
-                <figure class="how-tile" tabindex="0">
-                  <img src="cluster-computing-hero-image.jpg" alt="" />
-                  <figcaption class="how-cap"><p>We develop computational models and artificial neural networks to gain mechanistic insights on cognition.</p></figcaption>
-                </figure>
-                <figure class="how-tile" tabindex="0">
-                  <img src="brain.jpg" alt="" />
-                  <figcaption class="how-cap"><p>We work with brain data to ground our understanding of cognition in what is biologically plausible.</p></figcaption>
-                </figure>
+              <div class="rs-art">
+                <img class="art-layer" data-item="globe" src="globe.png" alt="" style="--halo:#3a6ea5" />
+                <img class="art-layer" data-item="chimp" src="chimp.png" alt="" style="--halo:#c77d3a" />
+                <img class="art-layer" data-item="baby"  src="baby.png"  alt="" style="--halo:#cf6f8a" />
+                <!-- transparent click areas over each part -->
+                <button class="art-hot" type="button" data-item="globe" tabindex="-1" aria-label="Across the Globe" style="--x:50%;--y:22%;--w:86%;--h:42%"></button>
+                <button class="art-hot" type="button" data-item="globe" tabindex="-1" aria-label="Across the Globe" style="--x:50%;--y:64%;--w:88%;--h:60%"></button>
+                <button class="art-hot" type="button" data-item="chimp" tabindex="-1" aria-label="Across Species" style="--x:34%;--y:53%;--w:38%;--h:34%"></button>
+                <button class="art-hot" type="button" data-item="baby"  tabindex="-1" aria-label="Across Development" style="--x:68%;--y:54%;--w:33%;--h:30%"></button>
               </div>
             </div>
-          </article>
 
+            <!-- How: an eye with its eye-tracker, a small neural network, a brain -->
+            <div class="rs-panel rs-panel--how" data-part="how">
+              <h3 class="rs-label">How we study it</h3>
+              <div class="rs-text" aria-live="polite">
+                <p class="rs-pick"><span class="pick-wide">Click a name on the left, or the picture</span><span class="pick-phone">Tap the picture to explore</span></p>
+                <div class="rs-desc" data-item="eye" style="--c:#2f8a78">
+                  <h3>Experimental work</h3>
+                  <p>We use eye-tracking, pupillometry and behavioural techniques to study how cognition changes across species and development.</p>
+                </div>
+                <div class="rs-desc" data-item="model" style="--c:#6b5ba6">
+                  <h3>Computational modelling</h3>
+                  <p>We develop computational models and artificial neural networks to gain mechanistic insights on cognition.</p>
+                </div>
+                <div class="rs-desc" data-item="brain" style="--c:#cc5f7d">
+                  <h3>Brain data</h3>
+                  <p>We work with brain data to ground our understanding of cognition in what is biologically plausible.</p>
+                </div>
+              </div>
+              <div class="rs-art rs-art--how">
+                <!-- faint links between the three: they work together -->
+                <svg class="art-base" viewBox="0 0 414 400" aria-hidden="true">
+                  <path d="M207 198 L112 292 M207 198 L318 284 M112 292 L318 284" fill="none" stroke="#9aa39c" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+                </svg>
+                <!-- an eye-tracking session, in a circle -->
+                <svg class="art-layer" data-item="eye" viewBox="0 0 414 400" aria-hidden="true" style="--halo:#2f8a78">
+                  <defs><clipPath id="eyeClip"><circle cx="207" cy="104" r="94"/></clipPath></defs>
+                  <image href="assets/img/research/eye-tracking.jpg" x="113" y="10" width="188" height="188" clip-path="url(#eyeClip)" preserveAspectRatio="xMidYMid slice"/>
+                  <circle cx="207" cy="104" r="94" fill="none" stroke="#2b2b2b" stroke-width="6"/>
+                </svg>
+                <!-- a small copy of the network at the top of the page (main.js draws it) -->
+                <canvas class="art-layer art-live how-net" id="howNet" data-item="model" aria-hidden="true" style="--halo:#6b5ba6"></canvas>
+                <!-- a brain, seen from the side -->
+                <svg class="art-layer" data-item="brain" viewBox="0 0 414 400" aria-hidden="true" style="--halo:#cc5f7d">
+                  <image href="assets/img/research/brain.png?v=2" x="226" y="209" width="186" height="151"/>
+                </svg>
+                <button class="art-hot" type="button" data-item="eye"   tabindex="-1" aria-label="Experimental work" style="--x:50%;--y:26%;--w:46%;--h:47%"></button>
+                <button class="art-hot" type="button" data-item="brain" tabindex="-1" aria-label="Brain data" style="--x:76%;--y:71%;--w:44%;--h:38%"></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -159,21 +208,25 @@
             <img class="person-photo" src="Francesco.JPG" alt="Dr. Francesco Poli" />
             <figcaption class="person-info">
               <div class="person-name"><strong>Dr. Francesco Poli</strong><span>Principal Investigator</span></div>
-              <p class="person-bio">Francesco leads CLAB. He is interested in how humans and other animals learn and explore, and loves using eye-tracking and computational modelling to find out.</p>
-              <div class="person-actions">
-                <a class="person-bsky" href="https://bsky.app/profile/francescopoli.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky profile of Francesco Poli">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
-                </a>
-                <a class="person-link" href="https://francescpoli.github.io/" target="_blank" rel="noopener">Go to personal website <span class="arrow-x">&rarr;</span></a>
+              <div class="person-more">
+                <p class="person-bio">Francesco leads CLAB. He is interested in how humans and other animals learn and explore, and loves using eye-tracking and computational modelling to find out.</p>
+                <div class="person-actions">
+                  <a class="person-bsky" href="https://bsky.app/profile/francescopoli.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky profile of Francesco Poli">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
+                  </a>
+                  <a class="person-link" href="https://francescpoli.github.io/" target="_blank" rel="noopener">Go to personal website <span class="arrow-x">&rarr;</span></a>
+                </div>
+                <a class="person-email" href="mailto:francesco.poli@live.com">francesco.poli@live.com</a>
               </div>
-              <a class="person-email" href="mailto:francesco.poli@live.com">francesco.poli@live.com</a>
             </figcaption>
           </figure>
           <figure class="person" tabindex="0">
             <img class="person-photo" src="Anchal_Bhaskar.jpg" alt="Anchal Bhaskar" />
             <figcaption class="person-info">
               <div class="person-name"><strong>Anchal Bhaskar</strong><span>PhD Student</span></div>
-              <p class="person-bio">Anchal is interested in Nature, Networks, and Nurture: How cognition is the result of genetic, brain, and behavioural processes across development.</p>
+              <div class="person-more">
+                <p class="person-bio">Anchal is interested in Nature, Networks, and Nurture: How cognition is the result of genetic, brain, and behavioural processes across development. She is based at the <a href="https://www.astlelab.com/" target="_blank" rel="noopener">4D Lab</a> in Cambridge (UK).</p>
+              </div>
             </figcaption>
           </figure>
           <figure class="person" tabindex="0">
@@ -290,7 +343,6 @@
       <div class="container">
         <div class="section-head reveal">
           <h2 class="section-title">Resources</h2>
-          <p class="section-sub">For the team: where to find what you need.</p>
         </div>
 
         <div class="res-deck reveal">
@@ -467,6 +519,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20"></script>
+  <script src="assets/js/main.js?v=34"></script>
 </body>
 </html>
